@@ -8,11 +8,6 @@ class Counter extends Component {
         tags: ['tag1', 'tag2', 'tag3','tag4']
     };
 
-    constructor() {
-        super(); // used to call the constructor in the parent class from a child class
-        this.handleIncrement = this.handleIncrement.bind(this); // used to bind to 'this' for event handlers
-    }
-
     renderTags() {
         if (this.state.tags.length === 0) {
             return <p>There are no tags!</p>
@@ -21,8 +16,8 @@ class Counter extends Component {
         }
     }
 
-    handleIncrement() {
-        console.log('Increment Clicked');
+    handleIncrement = () => {
+        console.log('Increment Clicked', this);
     }
 
     render() {
