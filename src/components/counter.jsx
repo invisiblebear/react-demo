@@ -5,33 +5,24 @@ class Counter extends Component {
     state = { // contains elements to be used in the component
         count: 0,
         imageUrl: 'https://picsum.photos/200',
-        tags: ['tag1', 'tag2', 'tag3']
+        tags: ['tag1', 'tag2', 'tag3','tag4']
     };
+
+    renderTags() {
+        if (this.state.tags.length === 0) {
+            return <p>There are no tags!</p>
+        } else {
+            return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
+        }
+    }
 
     render() { 
         return( 
         <React.Fragment>
-            {/* <img src={this.state.imageUrl} alt='200px image'/><br /> */}
-            <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button className="btn btn-secondary btn-sm">Increment</button>
-            <ul>
-                {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-            </ul>
+            {this.renderTags()}
         </React.Fragment>
         );
     }
-
-    getBadgeClasses() {
-        let classes = "badge m-2 badge-";
-        classes += (this.state.count === 0) ? "warning" : "primary";
-        return classes;
-    }
-
-    formatCount() {
-        const { count } = this.state;
-        const x = 'Zero';
-        return count === 0 ? x : count;
-    };
 }
 
 export default Counter; // makes available for import into another component
