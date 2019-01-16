@@ -3,21 +3,28 @@ import React, { Component } from 'react';
 class Counter extends Component {
 
     state = { // contains elements to be used in the component
-        count: 0
+        count: 0,
+        imageUrl: 'https://picsum.photos/200'
     };
+
+    styles = {
+        fontSize: 14,
+        fontWeight: 'bold'
+    }
 
     render() { 
         return( 
         <React.Fragment>
-            <span>{this.formatCount()}</span>
-            <button>Increment</button>
+            {/* <img src={this.state.imageUrl} alt='200px image'/><br /> */}
+            <span style={this.styles} className='badge badge-primary m-2'>{this.formatCount()}</span>
+            <button className="btn btn-secondary btn-sm">Increment</button>
         </React.Fragment>
         );
     }
 
     formatCount() {
         const { count } = this.state;
-        const x = <h1>Zero</h1>
+        const x = 'Zero';
         return count === 0 ? x : count;
     };
 }
