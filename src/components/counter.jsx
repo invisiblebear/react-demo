@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
+
+    badgeStyles = {
+        minWidth: 36
+    }
+
     render() {
         return( 
         <div className="m-2">
-            <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+            <span style={this.badgeStyles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
             <button onClick={ () => this.props.onIncrement(this.props.counter)} className='btn btn-secondary btn-sm'>Increment</button>
             {/* use an arrow function inline to pass an argument into a method for eventhandlers */}
