@@ -22,16 +22,15 @@ class Counter extends Component {
 
     render() {
         return( 
-        <React.Fragment>
+        <div style={{margin: 10 }}>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
-            <button onClick={() => this.handleIncrement(product)} className='btn btn-secondary btn-sm'>Increment</button>
+            <button onClick={ this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button>
             {/* use an arrow function inline to pass an argument into a method for eventhandlers */}
 
-            {this.state.tags.length === 0 && 'Please create a new tag!'}<br />
-
-            {this.renderTags()}
-        </React.Fragment>
+            {/* {this.state.tags.length === 0 && 'Please create a new tag!'}<br />
+            {this.renderTags()} */}
+        </div>
         );
     }
 
