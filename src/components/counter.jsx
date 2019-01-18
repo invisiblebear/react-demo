@@ -17,7 +17,7 @@ class Counter extends Component {
     }
 
     handleIncrement = () => { //uses an arrow function to be able to bind event handlers the 'this' or the Counter object
-        console.log('Increment Clicked', this);
+        this.setState({count: this.state.count + 1}) // updates the state to update the view. you have to tell react explicitly what has changed
     }
 
     render() {
