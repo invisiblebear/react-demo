@@ -16,7 +16,7 @@ class Counter extends Component {
         }
     }
 
-    handleIncrement = () => {
+    handleIncrement = () => { //uses an arrow function to be able to bind event handlers the 'this' or the Counter object
         console.log('Increment Clicked', this);
     }
 
@@ -24,8 +24,9 @@ class Counter extends Component {
         return( 
         <React.Fragment>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button>
-            {this.state.tags.length === 0 && 'Please create a new tag!'}
+            <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button> 
+            {/* does not call this method handleIncrement, just passing a referance to it */}
+            {this.state.tags.length === 0 && 'Please create a new tag!'}<br />
             {this.renderTags()}
         </React.Fragment>
         );
