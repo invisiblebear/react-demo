@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class Counter extends Component {
 
     state = { // contains elements to be used in the component and is PRIVITE to this componet
-        value: this.props.value, // this.props includes all attributes we set in coutners componet and includes data we give to this component. Props are read only
+        value: this.props.counter.value, // this.props includes all attributes we set in coutners componet and includes data we give to this component. Props are read only
+        id: this.props.counter.id
     };
 
     renderTags() {
@@ -20,11 +21,13 @@ class Counter extends Component {
 
     render() {
         return( 
-        <div style={{margin: 10 }}>
+        <div className="m-2">
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
             <button onClick={ this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button>
             {/* use an arrow function inline to pass an argument into a method for eventhandlers */}
+
+            <button onClick={() => this.props.onDelete(this.state.id)} className="btn btn-danger btn-sm m-2">Delete</button>
         </div>
         );
     }
