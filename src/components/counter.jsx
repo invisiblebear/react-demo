@@ -17,16 +17,19 @@ class Counter extends Component {
     }
 
     handleIncrement = () => { //uses an arrow function to be able to bind event handlers the 'this' or the Counter object
-        this.setState({count: this.state.count + 1}) // updates the state to update the view. you have to tell react explicitly what has changed
+        this.setState({count: this.state.count + 1}) // updates the state to update the view. you have to tell react explicitly what has changed. it compares the DOM and virtual DOM and updates only the things that need to be updated.
     }
 
     render() {
         return( 
         <React.Fragment>
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-            <button onClick={this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button> 
-            {/* does not call this method handleIncrement, just passing a referance to it */}
+
+            <button onClick={() => this.handleIncrement(product)} className='btn btn-secondary btn-sm'>Increment</button>
+            {/* use an arrow function inline to pass an argument into a method for eventhandlers */}
+
             {this.state.tags.length === 0 && 'Please create a new tag!'}<br />
+
             {this.renderTags()}
         </React.Fragment>
         );
