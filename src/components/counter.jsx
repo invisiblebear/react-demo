@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Counter extends Component {
 
     state = { // contains elements to be used in the component
-        count: 0,
+        value: this.props.value, // this.props includes all attributes we set in coutners componet
         imageUrl: 'https://picsum.photos/200',
         tags: ['tag1', 'tag2', 'tag3','tag4']
     };
@@ -17,7 +17,7 @@ class Counter extends Component {
     }
 
     handleIncrement = () => { //uses an arrow function to be able to bind event handlers the 'this' or the Counter object
-        this.setState({count: this.state.count + 1}) // updates the state to update the view. you have to tell react explicitly what has changed. it compares the DOM and virtual DOM and updates only the things that need to be updated.
+        this.setState({value: this.state.value + 1}) // updates the state to update the view. you have to tell react explicitly what has changed. it compares the DOM and virtual DOM and updates only the things that need to be updated.
     }
 
     render() {
@@ -36,12 +36,12 @@ class Counter extends Component {
 
     getBadgeClasses () {
         let classes = 'badge m-1 badge-';
-        classes += this.state.count === 0 ? 'warning' : 'primary';
+        classes += this.state.value === 0 ? 'warning' : 'primary';
         return classes;
     }
 
     formatCount() {
-        const { count } = this.state;
+        const { value: count } = this.state;
         const x = 'Zero';
         return count === 0 ? x : count;
     };
