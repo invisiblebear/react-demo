@@ -14,10 +14,8 @@ class Counters extends Component {
         return ( 
             <div>
                 {this.state.counters.map(counter => (
-                    <Counter key={counter.id} value={counter.value}>
+                    <Counter key={counter.id} value={counter.value} id={counter.id}>
                         {/* value={counter.value} is like inputing to child componet in Angular */}
-                        <h4>Counter #{counter.id}</h4> 
-                        {/* This is a child to be passed in the Counter component */}
                     </Counter>
                 ))}
             </div>

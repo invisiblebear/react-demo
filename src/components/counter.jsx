@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 
-    state = { // contains elements to be used in the component
-        value: this.props.value, // this.props includes all attributes we set in coutners componet
-        imageUrl: 'https://picsum.photos/200',
-        tags: ['tag1', 'tag2', 'tag3','tag4']
+    state = { // contains elements to be used in the component and is PRIVITE to this componet
+        value: this.props.value, // this.props includes all attributes we set in coutners componet and includes data we give to this component. Props are read only
     };
 
     renderTags() {
@@ -21,17 +19,12 @@ class Counter extends Component {
     }
 
     render() {
-        console.log('prop', this.props);
         return( 
         <div style={{margin: 10 }}>
-            {this.props.children}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 
             <button onClick={ this.handleIncrement} className='btn btn-secondary btn-sm'>Increment</button>
             {/* use an arrow function inline to pass an argument into a method for eventhandlers */}
-
-            {/* {this.state.tags.length === 0 && 'Please create a new tag!'}<br />
-            {this.renderTags()} */}
         </div>
         );
     }
