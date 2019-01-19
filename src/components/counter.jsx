@@ -6,6 +6,9 @@ class Counter extends Component {
         minWidth: 36
     }
 
+    componentWillUnmount () {
+        console.log('componet - unmounted');
+    }
     render() {
         return( 
         <div className="m-2">

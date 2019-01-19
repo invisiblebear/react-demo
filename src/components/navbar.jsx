@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 const NavBar = ({totalCounters}) => {
     return ( 
         <nav className="navbar navbar-light bg-light">
-            <a className="navbar-brand" href="javascript: void(0);">
+            <a className="navbar-brand" href="https://github.com/invisiblebear" target="_blank">
                 NavBar
             </a>
             <span className="badge badge-pill badge-secondary">
